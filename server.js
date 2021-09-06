@@ -6,7 +6,7 @@ const dataBase = require('./db/db.json');
 const { readAndAppend, writeToFile } = require('./helpers/fsUtils');
 const routes = require('./routes/notesRouter');
 
-const PORT = process.env.port || 3001;
+const PORT = process.env.PORT || 3001;
 
 const app = express();
 
