@@ -37,6 +37,16 @@ const readAndAppend = (content, file) => {
   });
 };
 
+const writeToFile = (destination, content) => {
+  fs.writeFile(destination, JSON.stringify(content, null, 4), (err) =>
+    err ? console.error(err) : console.info(`\nData written to ${destination}`)
+  );
+};
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/index.html'));
+});
+
 app.listen(PORT, (err) => {
   if (err) console.error(err);
   console.log(`App listening at http://localhost:${PORT} 🚀`);
