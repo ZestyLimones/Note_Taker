@@ -2,7 +2,6 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const uuid = require('./helpers/uuid');
-const { log } = require('console');
 const dataBase = require('./db/db.json');
 const { readAndAppend, writeToFile } = require('./helpers/fsUtils');
 const routes = require('./routes/notesRouter');
