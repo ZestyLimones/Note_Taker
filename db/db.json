@@ -1,17 +1,17 @@
 [
     {
-        "title": "finish laundry",
-        "text": "fold clothes",
+        "title": "Node - Day 1",
+        "text": "a bunch of notes here about node",
         "id": "410c"
     },
     {
-        "title": "buy groceries",
-        "text": "go to the grocery store",
+        "title": "Express - Day 2",
+        "text": "a bunch of notes about express",
         "id": "dd0c"
     },
     {
-        "title": "complete homework",
-        "text": "finish this assignment",
+        "title": "JavaScript - Day 1",
+        "text": "a bunch of notes about javascript",
         "id": "0613"
     }
 ]
