@@ -43,6 +43,19 @@ const writeToFile = (destination, content) => {
   );
 };
 
+app.post('/api/notes', (req, res) => {
+  const newNote = req.body;
+
+  newNote.id = uuid();
+  if (newNote) {
+    readAndAppend(newNote, './db/db.json');
+    res.json(`Note added!`);
+    db.push(newNote);
+  } else {
+    res.error('Could not add note');
+  }
+});
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, './public/index.html'));
 });
