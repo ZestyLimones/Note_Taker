@@ -36,3 +36,8 @@ const readAndAppend = (content, file) => {
     }
   });
 };
+
+app.listen(PORT, (err) => {
+  if (err) console.error(err);
+  console.log(`App listening at http://localhost:${PORT} 🚀`);
+});
