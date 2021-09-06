@@ -1,8 +1,11 @@
 const app = require('express').Router();
 const path = require('path');
+const dataBase = require('../db/db.json');
+const uuid = require('../helpers/uuid');
+const { readAndAppend, writeToFile } = require('../helpers/fsUtils');
 
 app.get('/notes', (req, res) => {
-  res.sendFile(path.join(__dirname, './public/notes.html'));
+  res.sendFile(path.join(__dirname, '../public/notes.html'));
 });
 
 app.get('/api/notes', (req, res) => {
