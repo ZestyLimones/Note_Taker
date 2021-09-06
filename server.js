@@ -4,6 +4,7 @@ const fs = require('fs');
 const uuid = require('./helpers/uuid');
 const { log } = require('console');
 const dataBase = require('./db/db.json');
+const { readAndAppend, writeToFile } = require('./helpers/fsUtils');
 
 const PORT = process.env.port || 3001;
 
@@ -25,24 +26,6 @@ app.get('/notes', (req, res) => {
 app.get('/api/notes', (req, res) => {
   res.json(dataBase);
 });
-
-const readAndAppend = (content, file) => {
-  fs.readFile(file, 'utf8', (err, data) => {
-    if (err) {
-      console.error(err);
-    } else {
-      const parsedData = JSON.parse(data);
-      parsedData.push(content);
-      writeToFile(file, parsedData);
-    }
-  });
-};
-
-const writeToFile = (destination, content) => {
-  fs.writeFile(destination, JSON.stringify(content, null, 4), (err) =>
-    err ? console.error(err) : console.info(`\nData written to ${destination}`)
-  );
-};
 
 app.post('/api/notes', (req, res) => {
   const newNote = req.body;
