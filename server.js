@@ -36,7 +36,7 @@ app.post('/api/notes', (req, res) => {
     res.json(`Note added!`);
     dataBase.push(newNote);
   } else {
-    res.error('Could not add note');
+    res.error('Error in adding note');
   }
 });
 
