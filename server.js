@@ -3,6 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const uuid = require('./helpers/uuid');
 const { log } = require('console');
+const dataBase = require('./db/db.json');
 
 const PORT = process.env.port || 3001;
 
@@ -22,7 +23,7 @@ app.get('/notes', (req, res) => {
 });
 
 app.get('/api/notes', (req, res) => {
-  res.json(db);
+  res.json(dataBase);
 });
 
 const readAndAppend = (content, file) => {
@@ -50,7 +51,7 @@ app.post('/api/notes', (req, res) => {
   if (newNote) {
     readAndAppend(newNote, './db/db.json');
     res.json(`Note added!`);
-    db.push(newNote);
+    dataBase.push(newNote);
   } else {
     res.error('Could not add note');
   }
