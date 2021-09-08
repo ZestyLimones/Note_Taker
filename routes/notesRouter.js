@@ -21,8 +21,12 @@ app.post('/api/notes', (req, res) => {
     res.json(`Note added!`);
     dataBase.push(newNote);
   } else {
-    res.error('Error in adding note');
+    res.error('Error adding note.');
   }
+});
+
+app.delete('./api/notes', (req, res) => {
+  //add in stuff here for delete
 });
 
 module.exports = app;
