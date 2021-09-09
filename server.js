@@ -1,10 +1,10 @@
 const express = require('express');
-const path = require('path');
+
 const fs = require('fs');
 const uuid = require('./helpers/uuid');
 const dataBase = require('./db/db.json');
 const { readAndAppend, writeToFile } = require('./helpers/fsUtils');
-const routes = require('./routes/notesRouter');
+const routes = require('./routes');
 
 const PORT = process.env.PORT || 3001;
 
@@ -15,14 +15,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
 app.use(routes);
-
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, './public/index.html'));
-});
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, './public/index.html'));
-});
 
 app.listen(PORT, (err) => {
   if (err) console.error(err);

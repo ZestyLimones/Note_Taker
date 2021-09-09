@@ -18,4 +18,16 @@ const readAndAppend = (content, file) => {
   });
 };
 
-module.exports = { readAndAppend, writeToFile };
+const deleteNote = (content, file) => {
+  fs.readFile(file, 'utf8', (err, data) => {
+    if (err) {
+      console.error(err);
+    } else {
+      const parsedData = JSON.parse(data);
+      const allButDeletedNote = parsedData.filter((note) => note.id != content);
+      writeToFile(file, allButDeletedNote);
+    }
+  });
+};
+
+module.exports = { readAndAppend, writeToFile, deleteNote };
