@@ -28,7 +28,7 @@ https://fast-shelf-21917.herokuapp.com/
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/irv0735/Ouroboros.git
+   git clone https://github.com/ZestyLimones/Note_Taker.git
    ```
 2. Install NPM packages
    ```sh
